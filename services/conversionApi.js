@@ -1,16 +1,61 @@
-let conversionApiBody = {
-  data: [
-    {
-      event_name: "Purchase", // action (checkout..)
-      event_time: 1674219889, // formatear checkout_time
-      action_source: "email", // ya que son conversiones offline, segun docu sería 'physical_store'
+require("dotenv").config()
+const axios = require("axios")
+const _ = require("lodash")
+
+const fbURL = `https://graph.facebook.com/v9.0/${process.env.FB_PIXEL_ID}/events?access_token=${process.env.CONVERSIONS_API_ACCESS_TOKEN}`
+
+const SendDataToFacebook = async (arrOfEvents) => {
+  let eventsData = _.map(arrOfEvents, (event) => {
+    let {
+      em,
+      ph,
+      fn,
+      ln,
+      ge,
+      zp,
+      madid,
+      checkout_time,
+      action,
+      price,
+      country,
+    } = event
+
+    return {
+      event_name: action,
+      event_time: checkout_time,
+      action_source: "physical_store",
       user_data: {
-        em: "7b17fb0bd173f625b58636fb796407c22b3d16fc78302d79f0fd30c2fc2fc068", // email hasheado
-        ph: null, // telefono hasheadom
+        em,
+        ph,
+        fn,
+        ln,
+        ge,
+        zp,
+        country,
+        madid,
       },
       custom_data: {
-        currency: null,
+        currency: "eur",
+        value: price,
       },
-    },
-  ],
+    }
+  })
+
+  const body = { data: eventsData }
+
+  // return axios
+  //   .post(fbURL, body)
+  //   .then((res) => {
+  //     return res.status
+  //   })
+  //   .catch((err) => console.error(err))
+
+  try {
+    const res = await axios.post(fbURL, body)
+    return res.status
+  } catch (err) {
+    console.error(err)
+  }
 }
+
+module.exports = SendDataToFacebook
