@@ -2,7 +2,7 @@
 
 ### Prerequisites:
 
-- Node.js and npm (comes with Node.js) installed on your machine
+- Node.js and npm installed on your machine
 - A CSV file containing your offline conversions data
 - A Facebook pixel ID and Facebook access token
 
