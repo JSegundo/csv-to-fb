@@ -9,7 +9,7 @@
 ### Setup:
 
 - Clone the repository to your local machine
-  `git clone https://github.com/yourusername/offline-conversions-tool.git`
+  `git clone https://github.com/JSegundo/csv-to-fb.git`
 
 - Install the dependencies
 
