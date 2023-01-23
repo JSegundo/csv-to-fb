@@ -43,13 +43,6 @@ const SendDataToFacebook = async (arrOfEvents) => {
 
   const body = { data: eventsData }
 
-  // return axios
-  //   .post(fbURL, body)
-  //   .then((res) => {
-  //     return res.status
-  //   })
-  //   .catch((err) => console.error(err))
-
   try {
     const res = await axios.post(fbURL, body)
     return res.status

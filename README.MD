@@ -1,8 +1,30 @@
-- npm i http-server -g
+#CSV-TO-FB
 
-- start server with 'http-server' on the path that csv file is stored in
+###Prerequisites:
 
-- curl -X GET http://localhost:3000/api/csv?url=http://127.0.0.1:8080/example-adsmurai.csv
-  or just paste http://localhost:3000/api/csv?url=http://127.0.0.1:8080/example-adsmurai.csv in your browser
+- Node.js and npm (comes with Node.js) installed on your machine
+- A CSV file containing your offline conversions data
+- A Facebook pixel ID and Facebook access token
 
-(make a get request to the nodejs app running containing the csv file as a query param)
+###Setup:
+
+- Clone the repository to your local machine
+  `git clone https://github.com/yourusername/offline-conversions-tool.git`
+
+- Install the dependencies
+
+`npm install`
+
+- Start a local server to host the CSV file. You can use the http-server package for this.
+  `npm i http-server -g`
+
+cd ~path/to/csv/file => http-server
+
+- Start the node.js app
+  `npm start`
+
+- Make a GET request to the app, passing the url of the hosted CSV file as a query parameter.
+  `curl -X GET http://localhost:3000/api/csv?url=http://127.0.0.1:8080/example-offline-conversions.csv`
+  or just paste http://localhost:3000/api/csv?url=http://127.0.0.1:8080/example-offline-conversions.csv in your browser
+
+Check the console logs and the status code for the response from the Facebook API.

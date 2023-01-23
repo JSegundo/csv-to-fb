@@ -2,6 +2,7 @@
   "name": "adsmuraitest",
   "version": "1.0.0",
   "description": "",
+  "repository": "https://github.com/JSegundo/csv-to-fb",
   "main": "index.js",
   "scripts": {
     "start": "nodemon index.js",
@@ -12,15 +13,11 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^1.2.3",
-    "crypto": "^1.0.1",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
-    "facebook-nodejs-business-sdk": "^15.0.2",
     "fast-csv": "^4.3.6",
-    "install": "^0.13.0",
     "lodash": "^4.17.21",
-    "npm": "^9.3.1",
-    "request": "^2.88.2"
+    "validator": "^13.7.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.20"

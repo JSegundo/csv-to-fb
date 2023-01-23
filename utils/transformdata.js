@@ -1,7 +1,8 @@
 const crypto = require("crypto")
+const _ = require("lodash")
 
 const hashAndTransformData = (conversions) => {
-  return conversions.map((item) => {
+  return _.map(conversions, (item) => {
     let {
       email,
       phone,
@@ -20,7 +21,6 @@ const hashAndTransformData = (conversions) => {
       return crypto.createHash("sha256").update(e.toLowerCase()).digest("hex")
     })
 
-    // remover simbolos y espacios
     const cleanph = phone.replace(/[^\d]/g, "")
     const ph = crypto.createHash("sha256").update(cleanph).digest("hex")
 
@@ -45,7 +45,6 @@ const hashAndTransformData = (conversions) => {
       .digest("hex")
 
     const price = parseFloat(Price.replace(/[^\d,.]/g, "").replace(",", "."))
-    // madid = crypto.createHash("sha256").update(madid).digest("hex")
 
     country = crypto
       .createHash("sha256")
