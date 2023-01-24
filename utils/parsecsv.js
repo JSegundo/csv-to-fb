@@ -13,7 +13,6 @@ const readCsvFile = async (csvurl) => {
     const streamdata = new stream.PassThrough()
     streamdata.end(new Buffer.from(data))
 
-    // The PassThrough class is a way to create a "stream" of data that can be used to process and move data from one place to another. It's like a pipe that moves water from one place to another. The end() method is used to stop the movement of data through the stream, just like turning off the water in the pipe. In this case, the Buffer.from(data) is used to create a new buffer filled with the data from the response, and the end() method is used to stop the data movement in the stream, so the data is ready to be used. The responseType: "arraybuffer" option is used to tell axios that the data is an array of bytes, and that it should be treated as an array buffer when returned.
 
     const csvStream = csv.parseStream(streamdata)
 
