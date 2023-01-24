@@ -15,6 +15,7 @@
 
 - Start a local server to host the CSV file. You can use the http-server package for this.
   `npm i http-server -g`
+  =>
   `cd ~path/to/csv/file => http-server`
 
 - Start the node.js app
