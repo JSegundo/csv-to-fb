@@ -11,9 +11,7 @@
 - Clone the repository to your local machine
   `git clone https://github.com/JSegundo/csv-to-fb.git`
 
-- Install the dependencies
-
-`npm install`
+- Install the dependencies `npm install`
 
 - Start a local server to host the CSV file. You can use the http-server package for this.
   `npm i http-server -g`
